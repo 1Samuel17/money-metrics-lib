@@ -1,0 +1,7 @@
+[package]
+name = "money-metrics-lib"
+version = "0.1.0"
+edition = "2024"
+authors = ["1Samuel17", "https://github.com/1Samuel17"]
+
+[dependencies]
