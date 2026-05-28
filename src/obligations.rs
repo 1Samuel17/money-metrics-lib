@@ -1,7 +1,7 @@
 use crate::utilities::Frequency;
 use std::fmt::{Display, Formatter, Result};
 
-// TODO:
+// TODO: look into seeing if repeated code can be refactored into a generic
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Obligation {
@@ -93,21 +93,19 @@ impl Obligation {
 
     pub fn get_amount(&self) -> i32 {
         match self {
-            Obligation::Mortgage {amount, .. } |
-            Obligation::Hoa {amount, .. } |
-            Obligation::Electricity {amount, .. } |
-            Obligation::Gas {amount, .. } |
-            Obligation::Water {amount, .. } |
-            Obligation::Phone {amount, .. } |
-            Obligation::Internet {amount, .. } |
-            Obligation::Vehicle {amount, .. } |
-            Obligation::StudentLoan {amount, .. } |
-            Obligation::CreditCard {amount, .. } |
-            Obligation::InstallmentPlan {amount, .. } |
-            Obligation::Groceries {amount, .. } |
-            Obligation::Tithe { amount, .. } => {
-                *amount
-            }
+            Obligation::Mortgage { amount, .. }
+            | Obligation::Hoa { amount, .. }
+            | Obligation::Electricity { amount, .. }
+            | Obligation::Gas { amount, .. }
+            | Obligation::Water { amount, .. }
+            | Obligation::Phone { amount, .. }
+            | Obligation::Internet { amount, .. }
+            | Obligation::Vehicle { amount, .. }
+            | Obligation::StudentLoan { amount, .. }
+            | Obligation::CreditCard { amount, .. }
+            | Obligation::InstallmentPlan { amount, .. }
+            | Obligation::Groceries { amount, .. }
+            | Obligation::Tithe { amount, .. } => *amount,
         }
     }
 }

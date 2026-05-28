@@ -1,6 +1,8 @@
 use crate::utilities::Frequency;
 use std::fmt::{Display, Formatter, Result};
 
+// TODO: look into seeing if repeated code can be refactored into a generic
+
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Income {
     Employer {
@@ -48,13 +50,11 @@ impl Income {
 
     pub fn get_amount(&self) -> i32 {
         match self {
-            Income::Employer { amount, .. } |
-            Income::Property { amount, .. } |
-            Income::Person { amount, .. } |
-            Income::Project { amount, .. } |
-            Income::Business { amount, .. } => {
-               *amount
-            }
+            Income::Employer { amount, .. }
+            | Income::Property { amount, .. }
+            | Income::Person { amount, .. }
+            | Income::Project { amount, .. }
+            | Income::Business { amount, .. } => *amount,
         }
     }
 }
@@ -167,7 +167,12 @@ mod tests {
 
     #[test]
     fn test_get_amount() {
-        let income = Income::Employer { description: (String::from("day job")), amount: (1000), frequency: (Frequency::Biweekly), note: (String::from("get amount")) };
+        let income = Income::Employer {
+            description: (String::from("day job")),
+            amount: (1000),
+            frequency: (Frequency::Biweekly),
+            note: (String::from("get amount")),
+        };
 
         assert_eq!(income.get_amount(), 1000);
     }
