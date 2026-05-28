@@ -34,11 +34,13 @@ I plan on using the following plan to build this library:
 
 ## What core entity types do I need to begin building this library with the desired functionality?
 I will need the following core types to begin with:
-- IncomeSource (enum):
+- IncomeSource:
     - Employer
     - Property Rental
     - Person
-- ObligationSource (enum):
+    - Project
+    - Business
+- ObligationSource:
     - Mortgage
     - HOA
     - Electricity
@@ -52,30 +54,30 @@ I will need the following core types to begin with:
     - InstallmentPlan
     - Tithe
     - Groceries
-- ScenarioType (enum):
+- ScenarioType:
     - Real
     - Hypothetical
-- Income (struct): 
+- Income: 
     - IncomeSource
     - Amount
     - Frequency
     - Note
-- Obligation (stuct):
+- Obligation:
     - ObligationSource
     - Amount
     - Frequency
     - Note
-- Scenario (struct):
+- Scenario:
     - ScenarioType (ScenarioType)
     - Incomes (vec)
     - Obligations (vec)
-- Metrics (trait):
+- Metrics:
     - ratios
     - percentages
     - annualizations
     - projections
     - hypotheticals
-- Frequency (enum):
+- Frequency:
     - Biweekly
     - Monthly
     - Random
