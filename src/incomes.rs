@@ -1,37 +1,35 @@
 use crate::utilities::Frequency;
 use std::fmt::{Display, Formatter, Result};
 
-// TODO:
-
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Income {
     Employer {
         description: String,
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Property {
         description: String,
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Person {
         description: String,
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Project {
         description: String,
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Business {
         description: String,
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
@@ -45,6 +43,18 @@ impl Income {
             Income::Person { .. } => "Person".to_string(),
             Income::Project { .. } => "Project".to_string(),
             Income::Business { .. } => "Business".to_string(),
+        }
+    }
+
+    pub fn get_amount(&self) -> i32 {
+        match self {
+            Income::Employer { amount, .. } |
+            Income::Property { amount, .. } |
+            Income::Person { amount, .. } |
+            Income::Project { amount, .. } |
+            Income::Business { amount, .. } => {
+               *amount
+            }
         }
     }
 }
@@ -153,5 +163,12 @@ mod tests {
         let incomes = Incomes::new();
 
         assert_eq!(incomes.len(), 0);
+    }
+
+    #[test]
+    fn test_get_amount() {
+        let income = Income::Employer { description: (String::from("day job")), amount: (1000), frequency: (Frequency::Biweekly), note: (String::from("get amount")) };
+
+        assert_eq!(income.get_amount(), 1000);
     }
 }
