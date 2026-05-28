@@ -6,67 +6,67 @@ use std::fmt::{Display, Formatter, Result};
 #[derive(Debug, PartialEq, Eq)]
 pub enum Obligation {
     Mortgage {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Hoa {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Electricity {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Gas {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Water {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Phone {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Internet {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Vehicle {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     StudentLoan {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     CreditCard {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     InstallmentPlan {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Groceries {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
     Tithe {
-        amount: u16,
+        amount: i32,
         frequency: Frequency,
         note: String,
     },
@@ -75,19 +75,39 @@ pub enum Obligation {
 impl Obligation {
     pub fn variant_as_string(&self) -> String {
         match self {
-            Self::Mortgage { .. } => String::from("Mortgage"),
-            Self::Hoa { .. } => String::from("HOA"),
-            Self::Electricity { .. } => String::from("Electrity"),
-            Self::Gas { .. } => String::from("Gas"),
-            Self::Water { .. } => String::from("Water"),
-            Self::Phone { .. } => String::from("Phone"),
-            Self::Internet { .. } => String::from("Internet"),
-            Self::Vehicle { .. } => String::from("Vehicle"),
-            Self::StudentLoan { .. } => String::from("Student Loan"),
-            Self::CreditCard { .. } => String::from("Credit Card"),
-            Self::InstallmentPlan { .. } => String::from("Installment Plan"),
-            Self::Groceries { .. } => String::from("Groceries"),
-            Self::Tithe { .. } => String::from("Tithe"),
+            Obligation::Mortgage { .. } => String::from("Mortgage"),
+            Obligation::Hoa { .. } => String::from("HOA"),
+            Obligation::Electricity { .. } => String::from("Electrity"),
+            Obligation::Gas { .. } => String::from("Gas"),
+            Obligation::Water { .. } => String::from("Water"),
+            Obligation::Phone { .. } => String::from("Phone"),
+            Obligation::Internet { .. } => String::from("Internet"),
+            Obligation::Vehicle { .. } => String::from("Vehicle"),
+            Obligation::StudentLoan { .. } => String::from("Student Loan"),
+            Obligation::CreditCard { .. } => String::from("Credit Card"),
+            Obligation::InstallmentPlan { .. } => String::from("Installment Plan"),
+            Obligation::Groceries { .. } => String::from("Groceries"),
+            Obligation::Tithe { .. } => String::from("Tithe"),
+        }
+    }
+
+    pub fn get_amount(&self) -> i32 {
+        match self {
+            Obligation::Mortgage {amount, .. } |
+            Obligation::Hoa {amount, .. } |
+            Obligation::Electricity {amount, .. } |
+            Obligation::Gas {amount, .. } |
+            Obligation::Water {amount, .. } |
+            Obligation::Phone {amount, .. } |
+            Obligation::Internet {amount, .. } |
+            Obligation::Vehicle {amount, .. } |
+            Obligation::StudentLoan {amount, .. } |
+            Obligation::CreditCard {amount, .. } |
+            Obligation::InstallmentPlan {amount, .. } |
+            Obligation::Groceries {amount, .. } |
+            Obligation::Tithe { amount, .. } => {
+                *amount
+            }
         }
     }
 }
@@ -322,5 +342,16 @@ mod tests {
         let obligations = Obligations::new();
 
         assert_eq!(obligations.len(), 0);
+    }
+
+    #[test]
+    fn test_get_amount() {
+        let obligation = Obligation::CreditCard {
+            amount: (50),
+            frequency: (Frequency::Monthly),
+            note: (String::from("minimum payment")),
+        };
+
+        assert_eq!(obligation.get_amount(), 50);
     }
 }
