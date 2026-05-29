@@ -119,7 +119,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -131,7 +131,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -143,7 +143,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -155,7 +155,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -167,7 +167,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -179,7 +179,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -191,7 +191,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -203,7 +203,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -215,7 +215,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -227,7 +227,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -239,7 +239,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -251,7 +251,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -263,7 +263,7 @@ impl Display for Obligation {
                 note,
             } => write!(
                 f,
-                "Obligation: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Obligation: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 self.variant_as_string(),
                 amount,
                 frequency,
@@ -331,7 +331,7 @@ mod tests {
 
         assert_eq!(
             format!("{}", obligation),
-            "Obligation: Installment Plan -- Amount: 110, Frequency: Biweekly, Note: Klarna pay in four biweekly on payday"
+            "Obligation: Installment Plan\n\t- Amount: $110\n\t- Frequency: Biweekly\n\t- Note: Klarna pay in four biweekly on payday"
         );
     }
 

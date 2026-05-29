@@ -69,7 +69,7 @@ impl Display for Income {
                 note,
             } => write!(
                 f,
-                "Description: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Description: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 description, amount, frequency, note
             ),
             Income::Property {
@@ -79,7 +79,7 @@ impl Display for Income {
                 note,
             } => write!(
                 f,
-                "Description: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Description: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 description, amount, frequency, note
             ),
             Income::Person {
@@ -89,7 +89,7 @@ impl Display for Income {
                 note,
             } => write!(
                 f,
-                "Description: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Description: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 description, amount, frequency, note
             ),
             Income::Project {
@@ -99,7 +99,7 @@ impl Display for Income {
                 note,
             } => write!(
                 f,
-                "Description: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Description: {}\n\t- Amount: ${}\n\t- Frequency: {}\n\t- Note: {}",
                 description, amount, frequency, note
             ),
             Income::Business {
@@ -109,7 +109,7 @@ impl Display for Income {
                 note,
             } => write!(
                 f,
-                "Description: {} -- Amount: {}, Frequency: {}, Note: {}",
+                "Description: {}\n\t- Amount: {}\n\t- Frequency: {}\n\t- Note: {}",
                 description, amount, frequency, note
             ),
         }
@@ -154,7 +154,7 @@ mod tests {
 
         assert_eq!(
             format!("{}", income),
-            "Description: My Job -- Amount: 1000, Frequency: Biweekly, Note: main income. 40hrs/wk no OT"
+            "Description: My Job\n\t- Amount: $1000\n\t- Frequency: Biweekly\n\t- Note: main income. 40hrs/wk no OT"
         );
     }
 

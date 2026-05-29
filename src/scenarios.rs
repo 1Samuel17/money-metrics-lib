@@ -1,7 +1,9 @@
 use crate::{incomes::Income, obligations::Obligation};
 use std::fmt::{Display, Formatter, Result};
 
-// TODO: look into seeing if repeated code can be refactored into a generic
+// TODO: 
+// - look into seeing if repeated code can be refactored into a generic
+// - implement test for display impl
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum Scenario {
@@ -55,7 +57,7 @@ impl Display for Scenario {
                 note,
             } => write!(
                 f,
-                "Scenario: {} -- Incomes: {:?}, Obligations: {:? }, Note: {}",
+                "Scenario: {}\n\t-- Incomes: {:?}\n\t-- Obligations: {:? }\n\t-- Note: {}",
                 self.variant_as_string(),
                 incomes,
                 obligations,
@@ -67,7 +69,7 @@ impl Display for Scenario {
                 note,
             } => write!(
                 f,
-                "Scenario: {} -- Incomes: {:?}, Obligations: {:? }, Note: {}",
+                "Scenario: {}\n\t-- Incomes: {:?}\n\t-- Obligations: {:? }\n\t-- Note: {}",
                 self.variant_as_string(),
                 incomes,
                 obligations,
