@@ -1,7 +1,7 @@
 use crate::{incomes::Income, obligations::Obligation};
 use std::fmt::{Display, Formatter, Result};
 
-// TODO: 
+// TODO:
 // - look into seeing if repeated code can be refactored into a generic
 // - implement test for display impl
 
