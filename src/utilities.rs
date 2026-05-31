@@ -30,7 +30,7 @@ impl Display for Frequency {
     }
 }
 
-// Unit Tests ----------
+// Functionality Tests ----------
 
 #[cfg(test)]
 mod tests {

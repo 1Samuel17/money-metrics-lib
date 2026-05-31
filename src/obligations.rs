@@ -282,7 +282,7 @@ impl Obligations {
     }
 }
 
-// Unit Tests ----------
+// Functionality Tests ----------
 
 #[cfg(test)]
 mod tests {

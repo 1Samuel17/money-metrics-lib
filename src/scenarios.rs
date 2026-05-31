@@ -87,7 +87,7 @@ impl Scenarios {
     }
 }
 
-// Unit Tests ----------
+// Functionality Tests ----------
 
 #[cfg(test)]
 mod tests {
