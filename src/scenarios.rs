@@ -5,7 +5,7 @@ use std::fmt::{Display, Formatter, Result};
 // - look into seeing if repeated code can be refactored into a generic
 // - implement test for display impl
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq)]
 pub enum Scenario {
     Real {
         incomes: Vec<Income>,
@@ -27,7 +27,7 @@ impl Scenario {
         }
     }
 
-    pub fn get_diff(&self) -> i32 {
+    pub fn get_diff(&self) -> f32 {
         match self {
             Self::Real {
                 incomes,
@@ -39,8 +39,8 @@ impl Scenario {
                 obligations,
                 ..
             } => {
-                let total_income = incomes.iter().map(|i| i.get_amount()).sum::<i32>();
-                let total_obligations = obligations.iter().map(|i| i.get_amount()).sum::<i32>();
+                let total_income = incomes.iter().map(|i| i.get_amount()).sum::<f32>();
+                let total_obligations = obligations.iter().map(|i| i.get_amount()).sum::<f32>();
 
                 total_income - total_obligations
             }
@@ -125,35 +125,35 @@ mod tests {
         let mut incomes = Incomes::new();
         incomes.push(Income::Person {
             description: (String::from("Someone")),
-            amount: (50),
+            amount: (50.00),
             frequency: (Random),
             note: (String::from("Zelle")),
         });
         incomes.push(Income::Person {
             description: (String::from("Someone")),
-            amount: (50),
+            amount: (50.00),
             frequency: (Random),
             note: (String::from("Zelle")),
         });
         incomes.push(Income::Person {
             description: (String::from("Someone")),
-            amount: (50),
+            amount: (50.00),
             frequency: (Random),
             note: (String::from("Zelle")),
         });
         let mut obligations = Obligations::new();
         obligations.push(Obligation::CreditCard {
-            amount: (51),
+            amount: (51.00),
             frequency: (Random),
             note: (String::from("a dollar short")),
         });
         obligations.push(Obligation::CreditCard {
-            amount: (51),
+            amount: (51.00),
             frequency: (Random),
             note: (String::from("a dollar short")),
         });
         obligations.push(Obligation::CreditCard {
-            amount: (51),
+            amount: (51.00),
             frequency: (Random),
             note: (String::from("a dollar short")),
         });
@@ -165,6 +165,6 @@ mod tests {
 
         println!("{}", scenario.get_diff());
 
-        assert_eq!(scenario.get_diff(), -3);
+        assert_eq!(scenario.get_diff(), -3.00);
     }
 }

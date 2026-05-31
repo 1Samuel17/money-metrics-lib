@@ -3,70 +3,70 @@ use std::fmt::{Display, Formatter, Result};
 
 // TODO: look into seeing if repeated code can be refactored into a generic
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq)]
 pub enum Obligation {
     Mortgage {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Hoa {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Electricity {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Gas {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Water {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Phone {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Internet {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Vehicle {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     StudentLoan {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     CreditCard {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     InstallmentPlan {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Groceries {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Tithe {
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
@@ -91,7 +91,7 @@ impl Obligation {
         }
     }
 
-    pub fn get_amount(&self) -> i32 {
+    pub fn get_amount(&self) -> f32 {
         match self {
             Obligation::Mortgage { amount, .. }
             | Obligation::Hoa { amount, .. }
@@ -291,7 +291,7 @@ mod tests {
     #[test]
     fn test_create_new_obligation() {
         let obligation = Obligation::Mortgage {
-            amount: (3000),
+            amount: (3000.00),
             frequency: (Frequency::Monthly),
             note: (String::from("rounded up")),
         };
@@ -302,7 +302,7 @@ mod tests {
                 frequency,
                 note,
             } => {
-                assert_eq!(amount, 3000);
+                assert_eq!(amount, 3000.00);
                 assert_eq!(frequency, Frequency::Monthly);
                 assert_eq!(note, "rounded up");
             }
@@ -313,7 +313,7 @@ mod tests {
     #[test]
     fn test_name_as_string() {
         let obligation = Obligation::CreditCard {
-            amount: (50),
+            amount: (50.00),
             frequency: (Frequency::Monthly),
             note: (String::from("minimum payment")),
         };
@@ -324,7 +324,7 @@ mod tests {
     #[test]
     fn test_display_obligation() {
         let obligation = Obligation::InstallmentPlan {
-            amount: (110),
+            amount: (110.00),
             frequency: (Frequency::Biweekly),
             note: (String::from("Klarna pay in four biweekly on payday")),
         };
@@ -345,11 +345,11 @@ mod tests {
     #[test]
     fn test_get_amount() {
         let obligation = Obligation::CreditCard {
-            amount: (50),
+            amount: (50.00),
             frequency: (Frequency::Monthly),
             note: (String::from("minimum payment")),
         };
 
-        assert_eq!(obligation.get_amount(), 50);
+        assert_eq!(obligation.get_amount(), 50.00);
     }
 }

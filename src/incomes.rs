@@ -3,35 +3,35 @@ use std::fmt::{Display, Formatter, Result};
 
 // TODO: look into seeing if repeated code can be refactored into a generic
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Clone)]
 pub enum Income {
     Employer {
         description: String,
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Property {
         description: String,
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Person {
         description: String,
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Project {
         description: String,
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
     Business {
         description: String,
-        amount: i32,
+        amount: f32,
         frequency: Frequency,
         note: String,
     },
@@ -48,7 +48,7 @@ impl Income {
         }
     }
 
-    pub fn get_amount(&self) -> i32 {
+    pub fn get_amount(&self) -> f32 {
         match self {
             Income::Employer { amount, .. }
             | Income::Property { amount, .. }
@@ -135,7 +135,7 @@ mod tests {
     fn test_variant_as_string() {
         let income = Income::Employer {
             description: (String::from("My Job")),
-            amount: (1000),
+            amount: (1000.00),
             frequency: (Frequency::Biweekly),
             note: (String::from("main income. 40hrs/wk no OT")),
         };
@@ -147,7 +147,7 @@ mod tests {
     fn test_display_income() {
         let income = Income::Employer {
             description: (String::from("My Job")),
-            amount: (1000),
+            amount: (1000.00),
             frequency: (Frequency::Biweekly),
             note: (String::from("main income. 40hrs/wk no OT")),
         };
@@ -169,11 +169,11 @@ mod tests {
     fn test_get_amount() {
         let income = Income::Employer {
             description: (String::from("day job")),
-            amount: (1000),
+            amount: (1000.00),
             frequency: (Frequency::Biweekly),
             note: (String::from("get amount")),
         };
 
-        assert_eq!(income.get_amount(), 1000);
+        assert_eq!(income.get_amount(), 1000.00);
     }
 }

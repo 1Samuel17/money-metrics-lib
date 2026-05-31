@@ -18,19 +18,19 @@ mod tests {
         // create incomes
         let dayjob = Income::Employer {
             description: (String::from("day job")),
-            amount: (1500),
+            amount: (1500.00),
             frequency: (Frequency::Biweekly),
             note: (String::from("40hr week")),
         };
         let side_hustle = Income::Project {
             description: (String::from("side hustle")),
-            amount: (200),
+            amount: (200.00),
             frequency: (Frequency::Random),
             note: (String::from("approximate payout")),
         };
         let rental_income = Income::Property {
             description: (String::from("rv renting")),
-            amount: (300),
+            amount: (300.00),
             frequency: (Frequency::Monthly),
             note: (String::from("passthrough income")),
         };
@@ -40,17 +40,17 @@ mod tests {
         let _ = &default_incomes.push(rental_income);
         // create obligations
         let mortgage = Obligation::Mortgage {
-            amount: (2500),
+            amount: (2500.00),
             frequency: (Frequency::Monthly),
             note: (String::from("escrow included")),
         };
         let electricity = Obligation::Electricity {
-            amount: (350),
+            amount: (350.00),
             frequency: (Frequency::Monthly),
             note: (String::from("summer estimate")),
         };
         let water = Obligation::Water {
-            amount: (80),
+            amount: (80.00),
             frequency: (Frequency::Monthly),
             note: (String::from("high estimate")),
         };
